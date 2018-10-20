@@ -2,7 +2,7 @@
 #define OPTIONAL_H
 
 #include <iostream>
-
+#include <type_traits>
 template<typename T>
 struct optional {
     optional() {
@@ -123,6 +123,7 @@ struct optional {
     friend bool operator!=(optional  &x, optional  &y){
         return !(x == y);
     };
+
 private:
     typename std::aligned_storage<sizeof(T), alignof(T)>::type data;
     bool empty;
