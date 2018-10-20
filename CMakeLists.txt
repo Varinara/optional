@@ -9,5 +9,5 @@ add_subdirectory(gtest)
 
 add_library(counted counted.h counted.cpp)
 
-add_executable(aknazarov_arslan optional.cpp)
-target_link_libraries(aknazarov_arslan counted gtest)
+add_executable(optionalt optional.cpp)
+target_link_libraries(optionalt counted gtest)
