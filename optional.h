@@ -12,12 +12,12 @@ struct optional {
 
     optional(T const &x) {
         empty = false;
-        new(reinterpret_cast<T *>(&data)) T(x);
+        new(reinterpret_cast<T*>(&data)) T(x);
     }
 
     optional(optional const &other) : empty(other.empty) {
         if (!empty) {
-            new(reinterpret_cast<T *>(&data)) T(*other);
+            new(reinterpret_cast<T*>(&data)) T(*other);
         }
     }
 
@@ -44,7 +44,7 @@ struct optional {
 
     void swap(optional &other) {
         if (!empty && !other.empty) {
-            std::swap(*reinterpret_cast<T *>(&data), *reinterpret_cast<T *>(&other.data));
+            std::swap(*reinterpret_cast<T*>(&data), *reinterpret_cast<T*>(&other.data));
             std::swap(empty, other.empty);
         }
         else if (!empty){
