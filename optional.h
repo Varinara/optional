@@ -37,7 +37,7 @@ struct optional {
 
     void clear() {
         if (!empty) {
-            reinterpret_cast<T *>(&data)->~T();
+            reinterpret_cast<T*>(&data)->~T();
             empty = true;
         }
     }
@@ -48,12 +48,12 @@ struct optional {
             std::swap(empty, other.empty);
         }
         else if (!empty){
-            new(reinterpret_cast<T *>(&other.data)) T(*(*this));
+            new(reinterpret_cast<T*>(&other.data)) T(*(*this));
             this -> clear();
             other.empty = 0;
         }
         else if (!other.empty){
-            new(reinterpret_cast<T *>(&data)) T(*other);
+            new(reinterpret_cast<T*>(&data)) T(*other);
             other.clear();
             empty = 0;
         }
@@ -62,22 +62,22 @@ struct optional {
 
     T &operator*() {
         if (!empty)
-            return *reinterpret_cast<T *>(&data);
+            return *reinterpret_cast<T*>(&data);
     }
 
     T const &operator* () const{
         if (!empty)
-            return *reinterpret_cast<T const *>(&data);
+            return *reinterpret_cast<T const*>(&data);
     }
 
     T *operator->() {
         if (!empty)
-            return (reinterpret_cast<T *>(&data));
+            return (reinterpret_cast<T*>(&data));
     }
 
     T const *operator->() const{
         if (!empty)
-            return (reinterpret_cast<T const *>(&data));
+            return (reinterpret_cast<T const*>(&data));
     }
 
     friend bool check(optional &x, optional &y) {
