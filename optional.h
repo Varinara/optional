@@ -2,7 +2,6 @@
 #define OPTIONAL_H
 
 #include <iostream>
-#include <string>
 
 template<typename T>
 struct optional {
